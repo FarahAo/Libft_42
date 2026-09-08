@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/08 11:15:27 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/08 16:58:07 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/08 16:56:35 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/08 19:51:06 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
-#include <stddef.h>
-int ft_isalpha(int x);
-int ft_isdigit(int x);
-int ft_isalnum(int x);
-int ft_isascii(int x);
-int ft_isprint(int x);
-size_t ft_strlen(const char *s);
-void *ft_memset(void *s, int c , size_t n);
-void ft_bezero(void *s, size_t n);
-void *ft_memcpy(void *dest, const void *src, size_t n);
-void *ft_memmove(void *dest, const void *src, size_t n);
+#include "libft.h"
 
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
 
-
-#endif
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	i = 1;
+	if (s < d && d <= s + n - 1)
+	{
+		while (n >= i)
+		{
+			dec[n - i] = src[n - i];
+			i++;
+		}
+	}
+	else
+		i = 0;
+	while (n)
+	{
+		d[i] = s[i]
+			i++;
+		n--;
+	}
+}
