@@ -1,31 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/08 11:15:27 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/09 14:56:15 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/09 11:42:22 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/09 14:52:15 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-
-int		ft_isalpha(int x);
-int		ft_isdigit(int x);
-int		ft_isalnum(int x);
-int		ft_isascii(int x);
-int		ft_isprint(int x);
-size_t	ft_strlen(const char *s);
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bezero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
+char	*ll(char *dst, const char *src, size_t i, size_t size)
+{
+	while (i < size - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	length;
+	size_t	i;
 
-#endif
+	length = 0;
+	i = 0;
+	while (src[length])
+	{
+		length++;
+	}
+	if (size > length)
+	{
+		while (i < length)
+		{
+			dst [i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	else if (size <= length && size > 0)
+	{
+		dst = ll(dst, src, i, size);
+	}
+	return (length);
+}

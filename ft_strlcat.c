@@ -1,40 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/08 16:56:35 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/09 11:30:14 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/09 15:44:25 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/09 18:23:17 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcat(char *des, char *src, size_t size)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
-	size_t				i;
+	size_t	d;
+	size_t	s;
+	size_t	length;
+	size_t	i;
+	size_t	llength;
 
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	i = 1;
-	if (s < d && d <= s + n - 1)
+	d = ft_strlen(des);
+	s = ft_strlen(src);
+	length = d + s;
+	i = 0;
+	if (size <= d)
+		return (length);
+	llength = size - d - 1;
+	if (llength >= s)
 	{
-		while (n >= i)
+		while (i < s)
 		{
-			d[n - i] = s[n - i];
+			des[d] = src[i];
 			i++;
+			d++;
 		}
+		des[d] = '\0';
 	}
-	else
-		i = 0;
-	while (i < n)
+	else if (llength < s)
 	{
-		d[i] = s[i];
-		i++;
+		while (i < llength)
+		{
+			des[d] = src[i];
+			i++;
+			d++;
+		}
+		des[d] = '\0';
 	}
-	return (dest);
+	return (length);
 }

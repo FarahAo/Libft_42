@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 11:14:34 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/08 12:25:49 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/09 11:11:45 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	p = (unsigned char *)s;
 	i = 0;
-	while (n)
+	while (i < n)
 	{
 		p[i] = c;
-		n--;
 		i++;
 	}
 	return (s);
