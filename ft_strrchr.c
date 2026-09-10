@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	size_t	i;
 	char	*p;
@@ -9,10 +9,10 @@ char	*ft_strrchr(const char *s, int c)
 	while (str[i])
 	{
 		if (str[i] == c)
-			p = &str[i];
+			p = &(char *)str[i];
 		i++;
 	}
 	if (str[i] == c)
-		return (&str[i]);
+		return (&(char *)str[i]);
 	return (p);
 }
