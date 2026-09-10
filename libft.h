@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 11:15:27 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/09 14:56:15 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/10 17:59:58 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,20 @@ int		ft_isdigit(int x);
 int		ft_isalnum(int x);
 int		ft_isascii(int x);
 int		ft_isprint(int x);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+
 size_t	ft_strlen(const char *s);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bezero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *des, const char *src, size_t size);
+
+char	*strchr(const char *str, int c);
+char	*ft_strrchr(const char *str, int c);
+int		strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
