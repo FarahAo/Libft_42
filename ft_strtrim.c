@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/12 11:09:20 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/12 14:19:41 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/12 17:39:47 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/12 17:42:26 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*copy;
-	size_t	length_s;
-	size_t	i;
 
-	i = 0;
-	length_s = ft_strlen(s);
-	copy = malloc(length_s + 1);
-	if (copy == NULL)
-		return (NULL);
-	while (s[i])
-	{
-		copy[i] = s[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
 }

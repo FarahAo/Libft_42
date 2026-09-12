@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 11:10:43 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/08 12:53:23 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/12 15:39:24 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ void	ft_bzero(void *s, size_t n)
 
 	p = (unsigned char *)s;
 	i = 0;
-	while (n)
+	while (i < n)
 	{
 		p[i] = 0;
-		n--;
 		i++;
 	}
 }

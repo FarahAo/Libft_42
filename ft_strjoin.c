@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/12 11:09:20 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/12 14:19:41 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/12 14:57:00 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/12 16:16:26 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*copy;
-	size_t	length_s;
-	size_t	i;
+	char		*p;
+	size_t		length;
+	size_t		i;
+	size_t		j;
 
+	length = ft_strlen(s1) + ft_strlen(s2);
+	p = malloc(length + 1);
 	i = 0;
-	length_s = ft_strlen(s);
-	copy = malloc(length_s + 1);
-	if (copy == NULL)
+	j = 0;
+	if (!p)
 		return (NULL);
-	while (s[i])
+	while (s1[i])
 	{
-		copy[i] = s[i];
+		p[j] = s1[i];
+		i++;
+		j++;
+	}
+	i = 0;
+	while (s2[i])
+	{
+		p[j + i] = s2[i];
 		i++;
 	}
-	copy[i] = '\0';
-	return (copy);
+	p[j + i] = '\0';
+	return (p);
 }

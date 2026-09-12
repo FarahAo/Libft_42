@@ -6,35 +6,34 @@
 #    By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/08 11:15:59 by fabo-ome          #+#    #+#              #
-#    Updated: 2026/09/09 13:36:39 by fabo-ome         ###   ########.fr        #
+#    Updated: 2026/09/12 13:35:38 by fabo-ome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-all : $(NAME)
 
-NAME : libft.a
 
-CC : cc
+all = $(NAME)
 
-CFLAGS : -Wall -Wextra -Werror 
+NAME = libft.a
 
-SRCS : ft_isalpha.c ft_isdigit.c ft_isalnum.c \
-	ft_isascii.c ft_isprint.c \
-	ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
-	ft_strlcpy.c
+CC = cc
 
-OBJ: files ending with .o
+CFLAGS = -Wall -Wextra -Werror 
 
-$(NAME): SRCS 
-	$(CC) $(CFLAGS) $^ 
+SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c
+
+OBJ = $(SRCS:.c=.o)
+
+$(NAME) : $(OBJ)
+	@ar rcs $(NAME)  $^ 	
 
 %.o : %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean : 
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean : clean 
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean all 

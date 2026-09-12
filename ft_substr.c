@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/12 11:09:20 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/12 14:19:41 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/12 11:17:15 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/12 14:28:17 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*copy;
-	size_t	length_s;
-	size_t	i;
+	 char	*sub;
+	size_t			length_s;
+	size_t			i;
 
-	i = 0;
 	length_s = ft_strlen(s);
-	copy = malloc(length_s + 1);
-	if (copy == NULL)
+	i = 0;
+	if (start >= length_s)
+		len = 0;
+	sub = malloc (len + 1);
+	if (!sub)
 		return (NULL);
-	while (s[i])
+	while (i < len && s[start + i])
 	{
-		copy[i] = s[i];
+		sub[i] = s[start + i];
 		i++;
 	}
-	copy[i] = '\0';
-	return (copy);
+	sub[i] = '\0';
+	return (sub);
 }
