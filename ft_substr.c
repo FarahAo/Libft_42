@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 11:17:15 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/12 14:28:17 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/13 08:03:54 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	 char	*sub;
-	size_t			length_s;
-	size_t			i;
+	char	*sub;
+	size_t	length_s;
+	size_t	i;
 
 	length_s = ft_strlen(s);
 	i = 0;

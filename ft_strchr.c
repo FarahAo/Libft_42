@@ -6,13 +6,13 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:40:06 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/10 16:40:08 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/13 12:00:02 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	size_t	i;
 
