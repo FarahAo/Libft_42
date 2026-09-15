@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/13 16:21:51 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/13 19:32:22 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/15 13:34:09 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/15 14:21:21 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,54 +19,88 @@ static	size_t	count_words(char const *s, char c)
 
 	i = 0;
 	count = 0;
-	while(s[i])
+	while (s[i])
 	{
-		if (s[i] != c && i == 0)
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i])
 			count++;
-		else if (s[i] != c && s[i - 1] == c)
-			count++;
-		i++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
 	return (count);
 }
-static	size_t	word_length(char const *s, char c, size_t start)
+
+static	char	*word_length(char const *s, char c)
 {
-	size_t	length;
+	size_t	i;
+	size_t	len;
+	char	*word;
 
-	length = 0;
-	while (s[start + length] != c && s[start + length] != '\0')
-		length++;
-	return (length);
-
+	i = 0;
+	len = 0;
+	while (s[i] && s[i] == c)
+		i++;
+	while (s[i] && s[i] != c)
+	{
+		len++;
+		i++;
+	}
+	word = malloc(len +1);
+	if (!word)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		word[i] = s[i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
 }
 
+static void	free_result(char **result, size_t j)
+{
+	while (j > 0)
+		free (result[--j]);
+	free (result);
+}
 
-	
+static	int	check(char **result, size_t j)
+{
+	if (!result[j])
+	{
+		free_result(result, j);
+		return (0);
+	}
+	return (1);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	char	*word;
-	size_t	count;
 	size_t	i;
-	size_t word_l;
+	size_t	j;
 
 	i = 0;
-	count = count_words(s, c);
-	result = malloc((count + 1) * sizeof(char *));
+	j = 0;
+	result = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	while (s[i])
 	{
-		if(s[i] != c && i == 0)
-			word_l = word_length(s,c,i);
-		else if (s[i] != c && s[i - 1] == c)
-			   word_l = word_length(s,c,i);
-		i++;
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
+		{
+			result[j] = word_length(&s[i], c);
+			if (!check(result, j))
+				return (NULL);
+			j++;
+		}
+		while (s[i] && s[i] != c)
+			i++;
 	}
-	word = malloc((word_l + 1) * sizeof(char));
-		if (!word)
-			return (NULL);
-	i = 0;
-
-	
+	result[j] = NULL;
+	return (result);
 }

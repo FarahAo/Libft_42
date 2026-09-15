@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 16:40:06 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/15 11:43:14 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/15 19:30:39 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/15 19:33:38 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			return ((char *)&str[i]);
-		i++;
-	}
-	if (str[i] == c)
-		return ((char *)&str[i]);
-	return (NULL);
+	write(1, s, strlen(s));
 }
