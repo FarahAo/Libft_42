@@ -14,5 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(1, s, strlen(s));
+	write(fd, s, strlen(s));
 }

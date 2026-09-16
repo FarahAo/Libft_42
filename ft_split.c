@@ -36,11 +36,13 @@ static	char	*word_length(char const *s, char c)
 	size_t	i;
 	size_t	len;
 	char	*word;
+	size_t	start;
 
 	i = 0;
 	len = 0;
 	while (s[i] && s[i] == c)
 		i++;
+	start = i;
 	while (s[i] && s[i] != c)
 	{
 		len++;
@@ -51,10 +53,7 @@ static	char	*word_length(char const *s, char c)
 		return (NULL);
 	i = 0;
 	while (i < len)
-	{
-		word[i] = s[i];
-		i++;
-	}
+		word[i++] = s[start++];
 	word[i] = '\0';
 	return (word);
 }
