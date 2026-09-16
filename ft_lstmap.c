@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/16 09:45:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/16 09:45:22 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/16 20:10:59 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/16 20:32:46 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
 {
-	long	nb;
+	t_list	new_node;
 
-	nb = n;
-	if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nb = -nb;
-	}
-	if (nb < 10)
-	{
-		ft_putchar_fd(nb + '0', fd);
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr_fd((nb / 10), fd);
-		ft_putchar_fd((nb % 10) + '0', fd);
-	}
+
 }

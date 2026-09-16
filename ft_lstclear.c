@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/16 09:45:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/16 09:45:22 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/16 16:39:11 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/16 19:08:57 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	long	nb;
+	t_list	*p;
 
-	nb = n;
-	if (nb < 0)
+	if (!lst || !del)
+		return ;
+	p = *lst;
+	while (p)
 	{
-		ft_putchar_fd('-', fd);
-		nb = -nb;
+		del((*lst)->content);
+		p = (*lst)->next;
+		free(*lst);
+		*lst = p;
 	}
-	if (nb < 10)
-	{
-		ft_putchar_fd(nb + '0', fd);
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr_fd((nb / 10), fd);
-		ft_putchar_fd((nb % 10) + '0', fd);
-	}
+	*lst = NULL;
 }

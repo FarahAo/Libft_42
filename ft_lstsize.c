@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/16 09:45:19 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/16 09:45:22 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/16 14:08:06 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/16 14:17:31 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+unsigned int	ft_lstsize(t_list *lst)
 {
-	long	nb;
+	unsigned int	count;
+	t_list			*p;
 
-	nb = n;
-	if (nb < 0)
+	p = *lst;
+	count = 0;
+	while (p)
 	{
-		ft_putchar_fd('-', fd);
-		nb = -nb;
+		count++;
+		p = p->next;
 	}
-	if (nb < 10)
-	{
-		ft_putchar_fd(nb + '0', fd);
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr_fd((nb / 10), fd);
-		ft_putchar_fd((nb % 10) + '0', fd);
-	}
+	return (count);
 }
