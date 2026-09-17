@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 11:09:49 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/12 11:09:52 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/17 09:49:34 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	little_len = ft_strlen(little);
 	j = 0;
 	if (little_len == 0)
-		return ((char *)&big);
+		return ((char *)big);
 	if (little_len > len)
 		return (NULL);
 	while (j <= len - little_len && big[j] != '\0')
@@ -32,7 +32,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			i++;
 		}
 		if (i == little_len)
-			return ((char *)&big[j]);
+			return ((char *)big);
 		j++;
 	}
 	return (NULL);

@@ -6,13 +6,13 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 11:42:22 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/09 14:52:15 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/17 15:46:46 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ll(char *dst, const char *src, size_t i, size_t size)
+static char	*ll(char *dst, const char *src, size_t i, size_t size)
 {
 	while (i < size - 1)
 	{

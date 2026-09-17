@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 19:30:39 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/15 19:33:38 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/17 09:57:06 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, strlen(s));
+	write(fd, s, ft_strlen(s));
 }
