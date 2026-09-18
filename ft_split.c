@@ -1,3 +1,4 @@
+#include "libft.h"
 
 static size_t	count_word(char const *s, char c)
 {
@@ -65,7 +66,7 @@ char	**ft_split(char const *s, char c)
 		while (s[i] == c && s[i])
 			i++;
 		result[j] = get_word(&s[i], c);
-		if (!result[j])
+		if (!result[j])	
 			return (free_result(j, result));
 		while (s[i] != c && s[i])
 			i++;
