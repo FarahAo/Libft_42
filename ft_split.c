@@ -1,18 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/15 13:34:09 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/15 14:21:21 by fabo-ome         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-#include "libft.h"
-
-static	size_t	count_words(char const *s, char c)
+static size_t	count_word(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -21,84 +8,68 @@ static	size_t	count_words(char const *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		if (s[i])
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			count++;
-		while (s[i] && s[i] != c)
-			i++;
+		i++;
 	}
 	return (count);
 }
 
-static	char	*word_length(char const *s, char c)
+static	char	*get_word(char const *s, char c)
 {
 	size_t	i;
-	size_t	len;
+	size_t	j;
+	size_t	length_word;
 	char	*word;
-	size_t	start;
 
 	i = 0;
-	len = 0;
-	while (s[i] && s[i] == c)
+	j = 0;
+	while (s[i] != c && s[i])
 		i++;
-	start = i;
-	while (s[i] && s[i] != c)
-	{
-		len++;
-		i++;
-	}
-	word = malloc(len +1);
+	length_word = i;
+	word = malloc(length_word + 1);
 	if (!word)
 		return (NULL);
-	i = 0;
-	while (i < len)
-		word[i++] = s[start++];
-	word[i] = '\0';
+	while (j < length_word)
+	{
+		word[j] = s[j];
+		j++;
+	}
+	word[j] = '\0';
 	return (word);
 }
 
-static void	free_result(char **result, size_t j)
+static char	**free_result(size_t j, char **result)
 {
 	while (j > 0)
-		free (result[--j]);
-	free (result);
-}
-
-static	int	check(char **result, size_t j)
-{
-	if (!result[j])
-	{
-		free_result(result, j);
-		return (0);
-	}
-	return (1);
+		free(result[--j]);
+	free(result);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
+	size_t	count;
 	char	**result;
-	size_t	i;
 	size_t	j;
+	size_t	i;
 
-	i = 0;
 	j = 0;
-	result = malloc((count_words(s, c) + 1) * sizeof(char *));
+	i = 0;
+	count = count_word(s, c);
+	result = malloc((count + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
-	while (s[i])
+	while (j < count)
 	{
-		while (s[i] && s[i] == c)
+		while (s[i] == c && s[i])
 			i++;
-		if (s[i] && s[i] != c)
-		{
-			result[j] = word_length(&s[i], c);
-			if (!check(result, j))
-				return (NULL);
-			j++;
-		}
-		while (s[i] && s[i] != c)
+		result[j] = get_word(&s[i], c);
+		if (!result[j])
+			return (free_result(j, result));
+		while (s[i] != c && s[i])
 			i++;
+		j++;
 	}
 	result[j] = NULL;
 	return (result);
