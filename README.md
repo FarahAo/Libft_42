@@ -50,7 +50,7 @@ To use the library in a C program, include the header file:
 The program can then be compiled together with the library:
 
 ```bash
-cc main.c libft.a
+cc -Wall -Wextra -Werror  main.c libft.a
 ```
 ## Functions
 
