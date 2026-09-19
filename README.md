@@ -2,7 +2,6 @@
 
 # Libft
 
-...# Libft
 
 ## Description
 
