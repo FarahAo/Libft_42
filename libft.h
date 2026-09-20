@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 11:15:27 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/19 14:04:51 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/20 13:11:56 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				ft_isascii(int x);
 int				ft_isprint(int x);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
-int				strncmp(const char *s1, const char *s2, size_t n);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *np);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 unsigned int	ft_lstsize(t_list *lst);

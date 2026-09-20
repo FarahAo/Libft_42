@@ -6,7 +6,7 @@
 #    By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/08 11:15:59 by fabo-ome          #+#    #+#              #
-#    Updated: 2026/09/17 10:02:26 by fabo-ome         ###   ########.fr        #
+#    Updated: 2026/09/20 13:04:07 by fabo-ome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS = ft_isalpha.c\
        ft_tolower.c \
        ft_strchr.c \
        ft_strrchr.c \
+       ft_strncmp.c\
        ft_memchr.c \
        ft_memcmp.c\
        ft_strnstr.c \

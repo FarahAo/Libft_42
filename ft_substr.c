@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 11:17:15 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/13 08:03:54 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/20 15:33:20 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (start >= length_s)
 		len = 0;
+	if (len > length_s - start)
+		len = length_s - start;
 	sub = malloc (len + 1);
 	if (!sub)
 		return (NULL);

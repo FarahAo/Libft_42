@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 10:34:25 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/12 10:34:27 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/20 14:51:56 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_atoi(const char *np)
 {
-	int		nbr;
 	int		sign;
 	int		ans;
 	size_t	i;
@@ -22,19 +21,18 @@ int	ft_atoi(const char *np)
 	sign = 1;
 	ans = 0;
 	i = 0;
-	if (np[i] == '-')
+	while (np[i] == ' ' || np[i] == '\t' || np[i] == '\n'
+		|| np[i] == '\v' || np[i] == '\f' || np[i] == '\r')
+		i++;
+	if (np[i] == '-' || np[i] == '+')
 	{
-		sign = -1;
+		if (np[i] == '-')
+			sign = -1;
 		i++;
 	}
-	else if (np[i] == '+')
+	while (np[i] >= '0' && np[i] <= '9')
 	{
-		i++;
-	}
-	while (np[i])
-	{
-		nbr = np[i] - '0';
-		ans = ans * 10 + nbr;
+		ans = ans * 10 + (np[i] - '0');
 		i++;
 	}
 	return (ans * sign);

@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:40:06 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/15 11:43:14 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/20 14:13:05 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strchr(const char *str, int c)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (str[i] == (unsigned char)c)
 			return ((char *)&str[i]);
 		i++;
 	}
-	if (str[i] == c)
+	if (str[i] == (unsigned char)c)
 		return ((char *)&str[i]);
 	return (NULL);
 }
