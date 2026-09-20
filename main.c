@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/12 11:08:56 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/19 11:20:11 by fabo-ome         ###   ########.fr       */
+/*   Created: 2026/09/19 15:14:55 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/19 16:37:19 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_calloc(size_t count, size_t size)
+#include <stdio.h>
+int main()
 {
-	unsigned char	*p;
-	size_t			i;
-	size_t			total;
-
-	i = 0;
-	total = count * size;
-	if (size != 0 && total / size != count)
-		return (NULL);
-	p = malloc(count * size);
-	if (p == NULL)
-		return (NULL);
-	while (i < count * size)
-	{
-		p[i] = 0;
-		i++;
-	}
-	return (p);
+	char a[] = "farah";
+	char b[] = "ab";
+	ft_memmove(a, b, 2);
+	printf("%s", a);
 }

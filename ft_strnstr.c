@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 11:09:49 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/17 09:49:34 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/19 09:38:11 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			i++;
 		}
 		if (i == little_len)
-			return ((char *)big);
+			return ((char *)&big[j]);
 		j++;
 	}
 	return (NULL);

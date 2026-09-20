@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/19 08:24:31 by fabo-ome          #+#    #+#             */
+/*   Updated: 2026/09/19 08:27:17 by fabo-ome         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	count_word(char const *s, char c)
@@ -66,7 +78,7 @@ char	**ft_split(char const *s, char c)
 		while (s[i] == c && s[i])
 			i++;
 		result[j] = get_word(&s[i], c);
-		if (!result[j])	
+		if (!result[j])
 			return (free_result(j, result));
 		while (s[i] != c && s[i])
 			i++;

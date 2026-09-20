@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 17:39:47 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/13 15:14:06 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/19 12:22:48 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,7 +17,7 @@ static	size_t	end_start(size_t start, const char *s1, const char *set)
 	size_t	end;
 
 	end = ft_strlen(s1) - 1;
-	while (end != 0 && ft_strchr(set, s1[end]))
+	while (ft_strchr(set, s1[end]))
 		end--;
 	if (start > end)
 		size = 0;
