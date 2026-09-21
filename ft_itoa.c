@@ -6,13 +6,13 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 14:45:34 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/20 15:07:51 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/21 17:12:45 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	length(long n)
+static size_t	length(long n)
 {
 	size_t	count;
 

@@ -73,9 +73,8 @@ The mandatory part consists of reimplementing commonly used C library functions 
 **File descriptor functions:**
 `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`
 
-### Bonus Part
 
-The bonus part focuses on linked lists and provides functions for creating, accessing, modifying, and manipulating linked-list nodes.
+**Linked list functions:**
 
 `ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, `ft_lstlast`, `ft_lstadd_back`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`
 ## Resources
