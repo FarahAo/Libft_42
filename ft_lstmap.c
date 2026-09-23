@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 20:10:59 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/17 09:05:16 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/22 11:47:33 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		ft_lstadd_back(&new, new_node);
 		lst = lst->next;
 	}
-	return (new);
+	return (new)
 }

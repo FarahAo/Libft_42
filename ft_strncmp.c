@@ -6,7 +6,7 @@
 /*   By: fabo-ome <fabo-ome@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 17:06:37 by fabo-ome          #+#    #+#             */
-/*   Updated: 2026/09/10 18:01:52 by fabo-ome         ###   ########.fr       */
+/*   Updated: 2026/09/22 13:15:45 by fabo-ome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (i < n && s1[i] == s2[i])
+	while (i < n && s1[i] == s2[i] && s1[i] && s2[i])
 		i++;
 	if (i == n)
 		return (0);
